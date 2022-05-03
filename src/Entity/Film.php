@@ -2,8 +2,9 @@
 
 namespace App\Entity;
 
-use App\Repository\FilmRepository;
+use App\Entity\User;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\FilmRepository;
 
 #[ORM\Entity(repositoryClass: FilmRepository::class)]
 class Film
