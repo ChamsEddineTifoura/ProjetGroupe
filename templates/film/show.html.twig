@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %} 
+{% block body %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 d-flex justify-content-around flex-wrap">
+        {# boucle sur le tableau $film du controller #}
+        {% for key, item in films %}
+        <div class="card" style="width: 450px; margin-top: 50px">
+            <div class="card-header"></div>
+            <div class="card-body">
+                <h5 class="card-title"></h5>
+                <p class="card-text"></p>
+                <a href="#" class="btn btn-primary">Film</a>
+            </div>
+        </div>
+        {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}
