@@ -22,16 +22,18 @@ class FilmType extends AbstractType
 
         $result = json_decode($json, true);
 
-        $genres = $result;
+        $genres = array();
+
+        for ($i=0; $i < count($result["genres"]); $i++) { 
+            $genres[] =  $result["genres"][$i]["name"];
+        }
 
         $builder
-
             ->add('category', ChoiceType::class, [
-                'choices'  => [
-                    $genres['genres'][0]['name'] => $genres['genres'][0]['name'],
-                    $genres['genres'][1]['name'] => $genres['genres'][1]['name'],
-                    $genres['genres'][2]['name'] => $genres['genres'][2]['name'],
-                ], 
+                'choices'  => $genres, 
+                'choice_label' => function ($genres, $key, $value) {
+                    return $value;
+                },
             ])
             ->add('name', ChoiceType::class, [
                 'choices'  => [
