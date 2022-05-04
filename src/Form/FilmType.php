@@ -3,6 +3,7 @@
 namespace App\Form;
 
 use App\Entity\Film;
+use App\Entity\Genre;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -12,8 +13,7 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 
 class FilmType extends AbstractType
-{
-    
+{   
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $key = "2630e5d421793226b64f8e6f65bcf6e8";
@@ -25,22 +25,22 @@ class FilmType extends AbstractType
         $genres = array();
 
         for ($i=0; $i < count($result["genres"]); $i++) { 
-            $genres[] =  $result["genres"][$i]["name"];
+            $genre = new Genre();
+            $genre->setId($result["genres"][$i]['id']);
+            $genre->setName($result["genres"][$i]['name']);
+            $genres[] = $genre;
         }
-
+        //dd($genres);
         $builder
             ->add('category', ChoiceType::class, [
                 'choices'  => $genres, 
-                'choice_label' => function ($genres, $key, $value) {
-                    return $value;
+                'choice_value' => 'id',
+                'choice_label' => function(?Genre $genre) {
+                    return $genre ? $genre->getName() : '';
                 },
             ])
             ->add('name', ChoiceType::class, [
-                'choices'  => [
-                    'Le seigneur des Anneaux' => 'Le seigneur des Anneaux',
-                    'Star Wars' => 'Star Wars',
-                    'Taxi' => 'Taxi',
-                ],
+                'choices'  => [],
             ])
             ->add('synopsis', TextType::class)
             ->add('image', TextType::class)

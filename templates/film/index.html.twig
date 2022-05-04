@@ -12,4 +12,34 @@
     </div>
   </div>
 </div> 
+	<script>
+		const selectElement = document.querySelector('#film_category');
+    const key = "2630e5d421793226b64f8e6f65bcf6e8";
+		selectElement.addEventListener('change', (event) => {
+			fetch(`https://api.themoviedb.org/3/discover/movie?with_genres=${event.target.value}&api_key=${key}&language=fr`)
+				.then(response => response.json())
+				.then(data => {
+          console.log(event.target.value);
+					console.log(data)
+					for (const book of data.items) {
+						if (book.volumeInfo.description) {
+							let listItem = document.createElement('a');
+							listItem.setAttribute('class', 'list-group-item list-group-item-action')
+							listItem.setAttribute('href', 'show_one_api/?key='+book.id)
+							listItem.appendChild(
+								document.createElement('strong')
+							).textContent = book.volumeInfo.title;
+							listItem.append(
+								` Author : ${
+								book.volumeInfo.authors
+								}`
+							);
+							myList.appendChild(listItem);
+						}
+					
+					}
+				})
+				.catch(console.error);
+		});
+	</script>
 {% endblock %}
