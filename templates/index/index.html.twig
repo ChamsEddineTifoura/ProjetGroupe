@@ -1,20 +1,22 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello IndexController!{% endblock %}
+{% block title %}Bienvenue sur la médiathèque!{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'C:/wamp64/www/ProjetPersoSymfony/Projet-Technique/src/Controller/IndexController.php'|file_link(0) }}">src/Controller/IndexController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/wamp64/www/ProjetPersoSymfony/Projet-Technique/templates/index/index.html.twig'|file_link(0) }}">templates/index/index.html.twig</a></code></li>
-    </ul>
-</div>
+    <h1>Hello welcome to médiathèque! ✅</h1>
+    <div class="d-flex">
+        {% for film in films %}
+            <div class="card"style="width: 450px; margin-top: 50px">
+                {#<div class="card-header">
+                    Créé le {{ article.getDate|date("d/m/Y") }}
+                </div>#}
+                <div class="card-body">
+                    <h5 class="card-title">{{ film.name }}</h5>
+                    <p class="card-text">{{ film.synopsis }}</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
 {% endblock %}
