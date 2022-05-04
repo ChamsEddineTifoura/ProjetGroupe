@@ -16,13 +16,13 @@ class FilmType extends AbstractType
     
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
+        //Recuperation du tableau Category
+        //----------------------------------------------------------------------------------
         $key = "2630e5d421793226b64f8e6f65bcf6e8";
-
         $json = file_get_contents("https://api.themoviedb.org/3/genre/movie/list?api_key=$key&language=fr");
-
         $result = json_decode($json, true);
-
         $genres = $result;
+        //----------------------------------------------------------------------------------
 
         $builder
 
