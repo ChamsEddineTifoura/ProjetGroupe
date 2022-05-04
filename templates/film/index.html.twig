@@ -14,32 +14,35 @@
 </div> 
 	<script>
 		const selectElement = document.querySelector('#film_category');
+    var selectFilm = document.querySelector('#film_name');
+
     const key = "2630e5d421793226b64f8e6f65bcf6e8";
+    // Event listener à la selection d'un genre
 		selectElement.addEventListener('change', (event) => {
-			fetch(`https://api.themoviedb.org/3/discover/movie?with_genres=${event.target.value}&api_key=${key}&language=fr`)
-				.then(response => response.json())
-				.then(data => {
-          console.log(event.target.value);
-					console.log(data)
-					for (const book of data.items) {
-						if (book.volumeInfo.description) {
-							let listItem = document.createElement('a');
-							listItem.setAttribute('class', 'list-group-item list-group-item-action')
-							listItem.setAttribute('href', 'show_one_api/?key='+book.id)
-							listItem.appendChild(
-								document.createElement('strong')
-							).textContent = book.volumeInfo.title;
-							listItem.append(
-								` Author : ${
-								book.volumeInfo.authors
-								}`
-							);
-							myList.appendChild(listItem);
-						}
-					
-					}
-				})
-				.catch(console.error);
+      // On vide le select
+      selectFilm.innerHTML = '';
+      // Boucle de 10 passage pour outrepasser la limite de 20 résultats par page, donc 20 x 10 pages
+      for (var i = 1; i <=10; i++) {	
+        // Requete fetch pour récupérer les résultats
+        fetch(`https://api.themoviedb.org/3/discover/movie?with_genres=${event.target.value}&api_key=${key}&language=fr&page=${i}`)
+          .then(response => response.json()) // Transformation de la réponse en JSON
+          .then(data => { // Traitement de la réponse
+            //console.log(data)
+            // Boucle pour générer les options
+            for (const film of data.results) {
+                let listItem = document.createElement('option');
+                listItem.value = film.id
+                listItem.append(
+                  film.title
+                );
+                selectFilm.appendChild(listItem);
+              }
+            }
+          )
+          .catch(console.error);
+      }
 		});
+
+    // refaire ici un eventListener lorsqu'on selectionne un film pour remplir le synopsis et l'image
 	</script>
 {% endblock %}
