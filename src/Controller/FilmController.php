@@ -19,6 +19,7 @@ class FilmController extends AbstractController
         // Création d'un objet formulaire spécifique à un film
         $form = $this->createForm(FilmType::class, $film);
         // Récupération du $_GET ou du $_POST
+        var_dump($_POST);
         $form->handleRequest($request);
         // Récupération de l'utilisateur connecté
         $user = $this->getUser();
