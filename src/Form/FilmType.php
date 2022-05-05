@@ -31,6 +31,7 @@ class FilmType extends AbstractType
         //dd($genres);
         $builder
             ->add('category', ChoiceType::class, [
+                'placeholder' => 'Choisissez une catégorie',
                 'choices'  => $genres, 
                 'choice_value' => 'id',
                 'choice_label' => function(?Genre $genre) {
@@ -39,8 +40,13 @@ class FilmType extends AbstractType
             ])
             ->add('name', ChoiceType::class, [
                 'choices'  => [],
+                'choice_value' => 'id',
             ])
-            ->add('synopsis', TextType::class)
+            ->add('synopsis', TextType::class, [
+                'attr' => [
+                    'maxlength' => 255,
+                ],
+            ])
             ->add('image', TextType::class)
             ->add('submit', SubmitType::class, [
                 'label' => "Enregistrer le film"
