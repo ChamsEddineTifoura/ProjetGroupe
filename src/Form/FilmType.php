@@ -9,8 +9,10 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
-
+use Symfony\Component\Form\FormEvent;
+use Symfony\Component\Form\FormEvents;
 
 class FilmType extends AbstractType
 {   
@@ -28,10 +30,13 @@ class FilmType extends AbstractType
             $genre->setName($result["genres"][$i]['name']);
             $genres[] = $genre;
         }
+
+        $json2 = file_get_contents("https://api.themoviedb.org/3/genre/movie/list?api_key=$key&language=fr");
+        $result2 = json_decode($json2, true);
+        
         //dd($genres);
         $builder
             ->add('category', ChoiceType::class, [
-                'placeholder' => 'Choisissez une catégorie',
                 'choices'  => $genres, 
                 'choice_value' => 'id',
                 'choice_label' => function(?Genre $genre) {
@@ -42,6 +47,10 @@ class FilmType extends AbstractType
                 'choices'  => [],
                 'choice_value' => 'id',
             ])
+            // ->addEventListener(FormEvents::PRE_SET_DATA, function(FormEvent $event){
+            //     $test = $event->getData();
+            //     dd($test);
+            // })
             ->add('synopsis', TextType::class, [
                 'attr' => [
                     'maxlength' => 255,
