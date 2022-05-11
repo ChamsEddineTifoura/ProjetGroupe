@@ -24,35 +24,6 @@ class FilmType extends AbstractType
 
         // $genres = array();
 
-<<<<<<< HEAD
-        for ($i=0; $i < count($result["genres"]); $i++) { 
-            $genre = new Genre();
-            $genre->setId($result["genres"][$i]['id']);
-            $genre->setName($result["genres"][$i]['name']);
-            $genres[] = $genre;
-        }
-
-        $json2 = file_get_contents("https://api.themoviedb.org/3/genre/movie/list?api_key=$key&language=fr");
-        $result2 = json_decode($json2, true);
-        
-        //dd($genres);
-        $builder
-            ->add('category', ChoiceType::class, [
-                'choices'  => $genres, 
-                'choice_value' => 'id',
-                'choice_label' => function(?Genre $genre) {
-                    return $genre ? $genre->getName() : '';
-                },
-            ])
-            ->add('name', ChoiceType::class, [
-                'choices'  => [],
-                'choice_value' => 'id',
-            ])
-            // ->addEventListener(FormEvents::PRE_SET_DATA, function(FormEvent $event){
-            //     $test = $event->getData();
-            //     dd($test);
-            // })
-=======
         // for ($i=0; $i < count($result["genres"]); $i++) { 
         //     $genre = new Genre();
         //     $genre->setId($result["genres"][$i]['id']);
@@ -73,7 +44,6 @@ class FilmType extends AbstractType
                 'label'  => 'Rechercher un film',
             ])
             ->add('category', TextType::class)
->>>>>>> 252c904fb3cd1f5ad25632309b15ef464b30bcc8
             ->add('synopsis', TextType::class, [
                 'attr' => [
                     'maxlength' => 255,

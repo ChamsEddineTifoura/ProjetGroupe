@@ -1,0 +1,30 @@
+#film_name .suggestions{
+    padding: 0;
+    opacity: 0;
+    pointer-events: none;
+    max-height: 280px;
+    overflow-y: auto;
+}
+  
+#film_name.active .suggestions{
+    padding: 10px 8px;
+    opacity: 1;
+    pointer-events: auto;
+}
+  
+.suggestions li{
+    list-style: none;
+    padding: 8px 12px;
+    display: none;
+    width: 100%;
+    cursor: default;
+    border-radius: 3px;
+}
+  
+#film_name.active .suggestions li{
+    display: block;
+}
+
+.suggestions li:hover{
+    background: #efefef;
+}
