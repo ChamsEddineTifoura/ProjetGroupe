@@ -8,10 +8,10 @@
                         <div class="card-header mb-3">Film Form</div>
                         
                         {{ form_start(form, {'attr': {'class': 'row'}}) }}
-                            <div>
+                            <div id="boxFilmName" class="boxFilmName">
                                 {{ form_widget(form.name, {'attr': {'placeholder': ' '}}) }}
                                 {{ form_label(form.name) }}
-                                <div id="suggestions"></div>
+                                <div id="suggestions" class="suggestions"></div>
                             </div>
 
                             <div>

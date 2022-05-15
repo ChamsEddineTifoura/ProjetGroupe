@@ -1,4 +1,4 @@
-#film_name .suggestions{
+.boxFilmName .suggestions{
     padding: 0;
     opacity: 0;
     pointer-events: none;
@@ -6,7 +6,7 @@
     overflow-y: auto;
 }
   
-#film_name.active .suggestions{
+.boxFilmName.active .suggestions{
     padding: 10px 8px;
     opacity: 1;
     pointer-events: auto;
@@ -21,7 +21,7 @@
     border-radius: 3px;
 }
   
-#film_name.active .suggestions li{
+.boxFilmName.active .suggestions li{
     display: block;
 }
 

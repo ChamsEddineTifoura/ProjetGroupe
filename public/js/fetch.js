@@ -1,4 +1,5 @@
 let search = document.getElementById('film_name');
+let boxFilmName = document.getElementById('boxFilmName');
 
 search.addEventListener('keyup', function(){
     const filmName = search.value;
@@ -12,13 +13,13 @@ search.addEventListener('keyup', function(){
                 data.results.map(film => {
                     suggestion += `<li class="suggestion" onclick="select(this)" value="${film.id}">${film.title}</li>`;
                 });
-                search.classList.add("active"); //show autocomplete box
+                boxFilmName.classList.add("active"); //show autocomplete box
             }
             let suggestions = document.getElementById('suggestions');
             suggestions.innerHTML = suggestion;
         });
     } else {
-        search.classList.remove("active"); //hide autocomplete box
+        boxFilmName.classList.remove("active"); //hide autocomplete box
     }
 });
 
@@ -32,6 +33,7 @@ function select(element){
     let fieldSynopsis = document.querySelector('#film_synopsis');
     let fieldImage = document.querySelector('#film_image');
 
+    fieldCategory.value = '';
     fieldSynopsis.value = '';
     fieldImage.value = '';
           	
@@ -46,5 +48,5 @@ function select(element){
         fieldImage.value = data.poster_path;
         
     })
-    search.classList.remove("active");
+    boxFilmName.classList.remove("active");
 }

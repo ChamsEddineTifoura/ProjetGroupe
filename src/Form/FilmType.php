@@ -42,6 +42,9 @@ class FilmType extends AbstractType
             // ])
             ->add('name', TextType::class, [
                 'label'  => 'Rechercher un film',
+                'attr' => [
+                    'class' => 'film_name',
+                ],
             ])
             ->add('category', TextType::class)
             ->add('synopsis', TextType::class, [
