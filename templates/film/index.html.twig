@@ -22,9 +22,9 @@
             // On vide le select
             selectFilm.innerHTML = '';
             // Boucle de 10 passage pour outrepasser la limite de 20 résultats par page, donc 20 x 10 pages
-            for (var i = 1; i <=10; i++) {	
+            for (var i = 1; i <=5; i++) {	
                 // Requete fetch pour récupérer les résultats
-                fetch(`https://api.themoviedb.org/3/discover/movie?with_genres=${event.target.value}&api_key=${key}&language=fr&page=${i}`)
+                fetch(`https://api.themoviedb.org/3/discover/movie?with_genres=${event.target.value}&api_key=${key}&language=fr&sort_by=original_title.asc&page=${i}`)
                 .then(response => response.json()) // Transformation de la réponse en JSON
                 .then(data => { // Traitement de la réponse
                     //console.log(data)
