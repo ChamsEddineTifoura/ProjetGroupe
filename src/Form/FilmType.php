@@ -39,6 +39,7 @@ class FilmType extends AbstractType
                 },
             ])
             ->add('name', ChoiceType::class, [
+                'placeholder' => 'Choisissez le film',
                 'choices'  => [],
                 'choice_value' => 'id',
             ])

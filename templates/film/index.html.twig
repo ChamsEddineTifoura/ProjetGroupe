@@ -1,4 +1,4 @@
-{# templates/film/index.html.twig #} {% extends'base.html.twig' %} 
+{# templates/film/index.html.twig #} {% extends 'base.html.twig' %} 
 {% block body %} 
     <div class="container">
         <div class="row justify-content-center">
@@ -31,7 +31,7 @@
                     // Boucle pour générer les options
                     for (const film of data.results) {
                         let listItem = document.createElement('option');
-                        listItem.value = film.id
+                        listItem.value = film.id;
                         listItem.append(film.title);
                         selectFilm.appendChild(listItem);
                     }
