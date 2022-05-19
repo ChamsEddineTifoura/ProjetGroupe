@@ -11,34 +11,43 @@
         {% endblock %}
         <link href="{{ asset('css/formFilm.css') }}" rel="stylesheet">
         <link href="{{ asset('css/showFilm.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/navbar.css') }}" rel="stylesheet">
         {% block javascripts %}
             {{ encore_entry_script_tags('app') }}
         {% endblock %}
     </head>
     <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="#">Navbar</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-          <div class="navbar-nav">
-          {% if app.user %}
-            <a class="nav-link active" aria-current="page" href="{{ path('app_index') }}">Index</a>
-            <a class="nav-link active" aria-current="page" href="{{ path('app_logout') }}">Logout</a>
-            <a class="nav-link active" aria-current="page" href="{{ path('app_film') }}">Create film</a>
-            <a class="nav-link active" aria-current="page" href="{{ path('show_film') }}">See film</a>
+    <div class="containerNavbar">
+        <nav>
+            {% if app.user %}
+                <ul class="menu menuFirst dpNone">
+                    <li class="menu-li"><a class="menu-a" aria-current="page" href="{{ path('app_index') }}">Index</a></li>
+                    <li class="menu-li"><a class="menu-a" aria-current="page" href="{{ path('app_logout') }}">Logout</a></li>                
+                </ul>           
+                <div class="containerLogo">
+                    <img class="nav-logo" src="Images/logo.png" alt="">
+                </div> 
+                <ul class="menu menuSecond dpNone">   
+                    <li class="menu-li"><a class="menu-a" aria-current="page" href="{{ path('app_film') }}">Create film</a></li>
+                    <li class="menu-li"><a class="menu-a" aria-current="page" href="{{ path('show_film') }}">See film</a></li>
+                </ul>
           {% endif %}
           {% if not app.user %}
-            <a class="nav-link active" aria-current="page" href="{{ path('app_login') }}">Login</a>
-            <a class="nav-link active" aria-current="page" href="{{ path('app_registration') }}">Register</a>
+            <ul class="menu menuFirst dpNone">
+                <li class="menu-li"><a class="menu-a" aria-current="page" href="{{ path('app_login') }}">Login</a></li>                 
+            </ul>           
+            <div class="containerLogo">
+                <img class="nav-logo" src="Images/logo.png" alt="">
+            </div> 
+            <ul class="menu menuSecond dpNone">
+                <li class="menu-li"><a class="menu-a" aria-current="page" href="{{ path('app_registration') }}">Register</a></li>
+            </ul>            
           {% endif %}
-          </div>
-        </div>
-      </div>
-    </nav>
+        </nav>
+    </div>
+
         {% block body %}{% endblock %}
+        <script src="{{ asset('js/navbar.js') }}"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     </body>
 </html>
