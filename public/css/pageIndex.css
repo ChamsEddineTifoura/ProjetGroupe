@@ -48,7 +48,7 @@ section {
 }
 
 .container-imgFilm.active .imgFilm {
-	width: 70%;
+	width: initial;
 }
 
 .container-imgFilm:hover .imgFilm {
