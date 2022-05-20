@@ -9,6 +9,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 
 class FilmController extends AbstractController
 {
@@ -19,7 +20,6 @@ class FilmController extends AbstractController
         // Création d'un objet formulaire spécifique à un film
         $form = $this->createForm(FilmType::class, $film);
         // Récupération du $_GET ou du $_POST
-        var_dump($_POST);
         $form->handleRequest($request);
         // Récupération de l'utilisateur connecté
         $user = $this->getUser();
@@ -55,5 +55,19 @@ class FilmController extends AbstractController
         return $this->render('film/show.html.twig', [
             'films'=> $films,
         ]);
+    }
+
+    #[Route('/film/{id}/delete', name: 'delete_film')]
+    public function delete(Film $film, ManagerRegistry $doctrine): Response
+    {
+        // Récupération du manager
+        $em = $doctrine->getManager();
+        // Suppression du film
+        $em->remove($film);
+        // Sauvegarde dans la base de données
+        $em->flush();
+
+        // Redirection vers la page login
+        return $this->redirectToRoute('show_film');
     }
 }

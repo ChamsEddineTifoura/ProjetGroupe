@@ -1,22 +1,40 @@
-{% extends 'base.html.twig' %}
+{% extends 'base.html.twig' %} {% set titreH1 = 'Bienvenue' %}
 
 {% block title %}Bienvenue sur la médiathèque!{% endblock %}
 
 {% block body %}
-
-    <h1>Hello welcome to médiathèque! ✅</h1>
-    <div class="d-flex">
+<section>
+    
+    <div class="container-box">
         {% for film in films %}
-            <div class="card"style="width: 450px; margin-top: 50px">
-                {#<div class="card-header">
-                    Créé le {{ article.getDate|date("d/m/Y") }}
-                </div>#}
-                <div class="card-body">
-                    <h5 class="card-title">{{ film.name }}</h5>
-                    <p class="card-text">{{ film.synopsis }}</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-            </div>
+            <div class="box" style="--i:3;">
+				<div class="container-imgFilm">
+					<img class="imgFilm" src="https://image.tmdb.org/t/p/original/{{ film.image }}">
+				</div>
+			</div>
         {% endfor %}
     </div>
+
+    <div class="footer">
+        <ul class="footer-ul">
+            <li class="footer-li"><a class="footer-a" href="#" style="--i:9">Facebook</a></li>
+            <li class="footer-li"><a class="footer-a" href="#" style="--i:8">Twitter</a></li>
+            <li class="footer-li"><a class="footer-a" href="#" style="--i:7">Instagram</a></li>
+        </ul>
+        <p class="copyrightText">©Online Tutorials. 2020</p>
+    </div>
+    <script>
+        let containerImgFilm = document.querySelectorAll('.container-imgFilm');
+        containerImgFilm.forEach(popup => popup.addEventListener('click', () =>{
+            popup.classList.toggle('active')
+        }));
+
+        function nbrAleatoire() {
+            return Math.floor(Math.random() * 6) + 3;
+        }
+
+        let box = document.querySelectorAll('.box');
+        box.forEach(box => box.style.setProperty('--i', nbrAleatoire()));
+    </script>
+</section>
 {% endblock %}
