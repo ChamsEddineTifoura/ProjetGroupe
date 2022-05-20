@@ -1,0 +1,151 @@
+section {
+	padding: 100px;
+	background: #fff;
+	min-height: 100vh;
+}
+
+.container-box {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.box {
+	width: 25%;
+	height: 250px;
+	margin-top: 15px;
+	background: #fff;
+	overflow: hidden;
+	border-right: 10px solid #fff;
+}
+
+.container-imgFilm {
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.9);
+	transition: 0.5s;
+	opacity: 0;
+	animation: slideRight 0.5s ease-in-out forwards;
+	animation-delay: calc(0.2s * var(--i));
+}
+
+.container-imgFilm.active {
+	position: fixed;
+	top: 100px;
+	left: 100px;
+	width: calc(100% - 200px);
+	height: calc(100% - 200px);
+	z-index: 1000;
+	filter: grayscale(0);
+	opacity: 1;
+	background: #fff;
+}
+
+.imgFilm {
+	width: 100%;
+	height: 98%;
+	object-fit: cover;
+	transition: 0.5s;
+}
+
+.container-imgFilm.active .imgFilm {
+	width: 70%;
+}
+
+.container-imgFilm:hover .imgFilm {
+	transform: scale(1.2);
+}
+
+.container-imgFilm.active:hover .imgFilm {
+	transform: scale(1);
+}
+
+.footer {
+	position: fixed;
+	bottom: 0;
+	right: 0;
+	background: #fff;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
+	padding: 0 100px;
+	height: 100px;
+}
+
+.footer-ul {
+	position: relative;
+	display: flex;
+}
+
+.footer-li {
+	list-style: none;
+}
+
+.footer-a {
+	color: #111;
+	text-decoration: none;
+    font-weight: 500;
+	margin-right: 20px;
+    display: inline-block;
+    opacity: 0;
+	animation: slideLeft 0.5s ease-in-out forwards;
+	animation-delay: calc(0.2s * var(--i));
+}
+
+.footer-li:last-child .footer-a {
+	margin-right: 0;
+}
+
+.copyrightText {
+	color: #111;
+    font-weight: 500;
+    opacity: 0;
+	animation: slideRight 0.5s ease-in-out forwards;
+	animation-delay: 2.5s;
+}
+
+@media screen and (max-width: 1200px) {
+	.footer {
+		padding: 0 40px;
+	}
+}
+
+@media screen and (max-width: 768px)
+{
+	section {
+	    padding: 80px 20px 30px 20px;
+	}
+
+	.container-box {
+		flex-direction: column;
+	}
+
+	.box {
+		width: 100%;
+		/* height: 25%; */
+		border-bottom: 10px solid #fff;
+	}
+
+	.container-imgFilm.active {
+	    top: 70px;
+	    left: 20px;
+	    width: calc(100% - 40px);
+	    /* height: calc(100% - 65px); */
+        height: 110%;
+	}
+
+	.container-imgFilm.active .imgFilm {
+		width: 100%;
+	}
+
+	.box:last-child {
+		border-right: 10px solid #fff;
+	}
+
+	.footer {
+	    width: 100%;
+	    padding: 0 20px;
+	    flex-direction: column;
+	    justify-content: center;
+	}
+}
