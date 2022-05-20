@@ -59,6 +59,14 @@ section {
 	transform: scale(1);
 }
 
+.titreFilm {
+	display: none;
+}
+
+.container-imgFilm.active .titreFilm {
+	display: initial;
+}
+
 .footer {
 	position: fixed;
 	bottom: 0;
