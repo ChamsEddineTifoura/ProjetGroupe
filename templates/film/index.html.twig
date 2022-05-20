@@ -6,13 +6,45 @@
                 <div class="card bg-light mb-3 mt-5" style="width: 800px">
                     <div class="card-body">
                         <div class="card-header mb-3">Film Form</div>
-                        {{ form(form) }}
+                        
+                        {{ form_start(form, {'attr': {'class': 'row'}}) }}
+                            <div id="boxFilmName" class="boxFilmName">
+                                {{ form_widget(form.name, {'attr': {'placeholder': ' '}}) }}
+                                {{ form_label(form.name) }}
+                                <div id="suggestions" class="suggestions"></div>
+                            </div>
+
+                            <div>
+                                {{ form_widget(form.category) }}
+                                {{ form_label(form.category) }}
+                            </div>
+
+                            <div>
+                                {{ form_widget(form.synopsis, {'attr': {'maxlength': 255}}) }}
+                                {{ form_label(form.synopsis) }}
+                            </div>
+
+                            <div>
+                                {{ form_widget(form.image) }}
+                                {{ form_label(form.image) }}
+                            </div>
+
+                            <div>
+                                {{ form_widget(form.submit) }}
+                                {{ form_label(form.submit) }}
+                            </div>
+                        {{ form_end(form) }}
+                        {# <div class="form">
+                            <input type="text" id="email" class="form__input" autocomplete="off" placeholder=" ">
+                            <label for="email" class="form__label">Email</label>
+                        </div> #}
                     </div>
                 </div>
             </div>
         </div>
     </div> 
-	<script>
+    <script src="{{ asset('js/fetch.js') }}"></script>
+	{# <script>
 		const selectElement = document.querySelector('#film_category');
         var selectFilm = document.querySelector('#film_name');
 
@@ -63,5 +95,5 @@
             .catch(console.error);
         
 		});
-	</script>
+	</script> #}
 {% endblock %}

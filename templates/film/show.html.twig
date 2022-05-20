@@ -1,5 +1,6 @@
 {% extends 'base.html.twig' %} 
 {% block body %}
+<<<<<<< HEAD
 <div class="container">
     <div class="row">
         <div class="col-md-12 d-flex justify-content-around flex-wrap">
@@ -12,9 +13,24 @@
                 <p class="card-text">{{ item.synopsis }}</p>
                 <a href="#" class="btn btn-primary">Film</a>
             </div>
+=======
+<div class="containerCard">
+
+    {# boucle sur le tableau $film du controller #}
+    {% for key, item in films %}
+    <div class="carte">
+        <div class="circle" style="--clr:#f40103">
+            <img class="logo" src="https://image.tmdb.org/t/p/w500/{{ item.image }}" alt="">
+>>>>>>> 0828bf5fb58816351bb04e0b9d247b911de9f610
         </div>
-        {% endfor %}
+        <div class="content">
+            <h2>{{ item.name }}</h2>
+            <p>{{ item.synopsis }}</p>
+            <a href="#">Explore</a>
         </div>
+        <img class="product_img" src="" alt="">
     </div>
+    {% endfor %}
+       
 </div>
 {% endblock %}
