@@ -10,7 +10,10 @@
             <div class="box" style="--i:3;">
 				<div class="container-imgFilm">
 					<img class="imgFilm" src="https://image.tmdb.org/t/p/original/{{ film.image }}">
-                    <h2 class="titreFilm">{{ film.name }}</h2>
+                    <div class="container-content">
+                        <h2 class="titreFilm">{{ film.name }}</h2>
+                        <p class="synopsisFilm">{{ film.synopsis }}</p>
+                    </div>
 				</div>
 			</div>
         {% endfor %}
