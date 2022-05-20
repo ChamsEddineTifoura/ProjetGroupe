@@ -45,7 +45,7 @@ nav {
     width: 180px;
 }
 
-.logo {
+.nav-logo {
     height: 120px;
     width: 180px;
 }
@@ -61,7 +61,7 @@ nav {
         width: 150px;
     }
     
-    .logo {
+    .nav-logo {
         height: 105px;
         width: 150px;
     }
