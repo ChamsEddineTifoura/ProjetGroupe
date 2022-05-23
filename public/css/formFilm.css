@@ -28,3 +28,8 @@
 .suggestions li:hover{
     background: #efefef;
 }
+
+
+#Form{
+	animation: slideUp 0.8s ease-in-out forwards;
+}

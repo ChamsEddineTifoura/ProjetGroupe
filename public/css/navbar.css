@@ -80,6 +80,24 @@
 	animation-delay: calc(0.2s * var(--i));
 }
 
+#LogoMedflex {
+	z-index: 1;
+    position: absolute;
+    /* min-width: 100%; */
+    /* min-height: 100%; */
+	width: 150px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    pointer-events: none;
+    background-attachment: fixed;
+}
+
+#TestIcone{
+width: 150px;
+height: 80px;
+}
+
 @keyframes slideRight {
 	0%
 	{
@@ -93,11 +111,6 @@
 	}
 }
 
-<<<<<<< HEAD
-.nav-logo {
-    height: 120px;
-    width: 180px;
-=======
 @keyframes slideLeft {
 	0%
 	{
@@ -109,7 +122,19 @@
 		transform: translateX(0px);
 		opacity: 1;
 	}
->>>>>>> fe35d4d11ebed10ce83021a4b00788a4c0a9e955
+}
+
+@keyframes slideUp {
+	0%
+	{
+		transform: translateY(-150px);
+		opacity: 0;
+	}
+	100%
+	{
+		transform: translateY(100px);
+		opacity: 1;
+	}
 }
 
 @media screen and (max-width: 768px) {
@@ -118,18 +143,6 @@
 	    padding: 10px 20px;
 	}
 
-<<<<<<< HEAD
-    .containerLogo {
-        height: 105px;
-        width: 150px;
-    }
-    
-    .nav-logo {
-        height: 105px;
-        width: 150px;
-    }
-}
-=======
 	.menu{
 		position: fixed;
 		top: 0;
@@ -142,7 +155,6 @@
 		flex-direction: column;
 		background: #fff;
 	}
->>>>>>> fe35d4d11ebed10ce83021a4b00788a4c0a9e955
 
 	.menu-a	{
 	    color: #111;
