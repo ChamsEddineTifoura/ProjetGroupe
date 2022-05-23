@@ -106,6 +106,19 @@
 	}
 }
 
+@keyframes slideUp {
+	0%
+	{
+		transform: translateY(-150px);
+		opacity: 0;
+	}
+	100%
+	{
+		transform: translateY(100px);
+		opacity: 1;
+	}
+}
+
 @media screen and (max-width: 768px) {
 	.navbar {
 	    height: 70px;
