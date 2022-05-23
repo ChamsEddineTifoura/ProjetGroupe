@@ -29,7 +29,8 @@
     background: #efefef;
 }
 
+/* animation d'apparition pour tout le sformulaire du site */
 
-#Form{
-	animation: slideUp 0.8s ease-in-out forwards;
+.allForms {
+    animation: slideUp 0.8s ease-in-out forwards;
 }
