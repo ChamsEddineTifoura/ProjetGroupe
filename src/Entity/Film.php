@@ -20,7 +20,7 @@ class Film
     #[ORM\Column(type: 'string', length: 100)]
     private $category;
 
-    #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    #[ORM\Column(type: 'text', nullable: true)]
     private $synopsis;
 
     #[ORM\Column(type: 'string', length: 255, nullable: true)]

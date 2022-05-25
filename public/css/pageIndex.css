@@ -136,6 +136,16 @@ section {
 	}
 }
 
+@media screen and (max-width: 1150px) {
+    .container-imgFilm.active .imgFilm {
+        width: 45%;
+    }
+    
+    .container-imgFilm.active .synopsisFilm {
+        margin-top: 0;
+    }
+}
+
 @media screen and (max-width: 940px) {
 	.container-imgFilm.active .container-content {
 		width: 0;

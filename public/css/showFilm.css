@@ -8,6 +8,7 @@
 }
 
 .containerCard {
+    margin-top: 140px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -19,17 +20,37 @@
     position: relative;
     display: flex;
     justify-content: flex-start;
-    width: 210px;
+    align-items: flex-start;
+    width: auto;
+    max-width: 350px;
     height: 350px;
     margin: 20px;
     border-radius: 20px;
     transition: 0.5s;
     transition-delay: 0.5s;
+    cursor: pointer;
 }
 
-.carte:hover {
-    width: 600px;
+.touch-carte {
+    height: 600px;
     transition-delay: 0s;
+}
+
+.touch-carte .circle::before {
+    clip-path: circle(400px at center);
+    background: var(--clr);
+}
+
+.touch-carte .logo {
+    transform: scale(0);
+    transition-delay: 0s;
+}
+
+.touch-carte .content {
+    left: 0;
+    opacity: 1;
+    visibility: visible;
+    transition-delay: 0.5s;
 }
 
 .circle {
@@ -57,11 +78,6 @@
     transition: 0.5s;
 }
 
-.carte:hover .circle::before {
-    clip-path: circle(400px at center);
-    background: var(--clr);
-}
-
 .logo {
     position: relative;
     width: 200px;
@@ -69,49 +85,47 @@
     transition-delay: 0.5s;
 }
 
-.carte:hover .logo {
-    transform: scale(0);
-    transition-delay: 0s;
-}
-
 .content {
     position: relative;
-    width: 80%;
-    left: 20%;
-    padding: 20px 20px 20px 40px;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    padding: 40px;
     opacity: 0;
     transition: 0.5s;
     visibility: hidden;
 }
 
-.carte:hover .content {
-    left: 0;
-    opacity: 1;
-    visibility: visible;
-    transition-delay: 0.5s;
-}
-
 .content h2 {
+    height: 30%;
     color: #fff;
     text-transform: uppercase;
-    font-size: 2.5em;
+    font-size: 2.2em;
     line-height: 1em;
 }
 
 .content p {
+    height: 55%;
+    overflow: auto;
     color: #fff;
 }
 
 .content a {
+    display: flex;
+    justify-content: center;
+    width: 100%;
     position: relative;
-    display: inline-block;
-    color: #111;
-    background: #fff;
-    margin-top: 10px;
+    color: white;
+    background: #810000;
+    margin-top: 35px;
     padding: 10px 20px;
     border-radius: 20px;
     text-decoration: none;
     font-weight: 500;
+}
+
+.content a:hover {
+    background: #CE1212;
 }
 
 .product_img {
@@ -124,34 +138,8 @@
     transition-delay: 0s;
 }
 
-.carte:hover .product_img {
-    left: 72%;
-    transform: translate(-50%, -50%) scale(1);
-    transition-delay: 0.5s;
-}
-
-@media screen and (max-width: 991px) {
-    .carte {
-        width: auto;
-        max-width: 350px;
-        align-items: flex-start;
-    }
-
-    .carte:hover {
-        height: 600px;
-    }
-
-    .content {
-        width: 100%;
-        left: 0;
-        padding: 40px;
-    }
-
-    .carte:hover .product_img {
-        top: initial;
-        bottom: 30px;
-        left: 50%;
-        transform: translate(-50%, 0%) scale(1);
-        height: 300px;
+@media screen and (max-width: 1150px) {
+    .containerCard {
+        margin-top: 110px;
     }
 }

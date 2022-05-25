@@ -12,20 +12,20 @@
 	z-index: 10000;
 }
 
-.nav-logo {
-	position: relative;
-	font-size: 28px;
-	color: #111;
-	text-decoration: none;
-	text-transform: uppercase;
-	letter-spacing: 2px;
-	font-weight: 700;
-	opacity: 0;
-	animation: slideLeft 0.5s ease-in-out forwards;
+#LogoMedflex {
+    /* min-width: 100%; */
+    min-height: 80%;
+	width: 150px;
+}
+
+#TestIcone{
+width: 150px;
+height: 80px;
 }
 
 .toggle {
 	position: relative;
+	top: -10px;
 	width: 30px;
 	height: 30px;
 	background: url(../images/menu.png);
@@ -58,6 +58,7 @@
 .menu.active {
 	opacity: 1;
 	visibility: visible;
+	margin: 0;
 }
 
 .menu-li {
@@ -78,24 +79,6 @@
 .menu.active .menu-a {
 	animation: slideRight 0.5s ease-in-out forwards;
 	animation-delay: calc(0.2s * var(--i));
-}
-
-#LogoMedflex {
-	z-index: 1;
-    position: absolute;
-    /* min-width: 100%; */
-    /* min-height: 100%; */
-	width: 150px;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    pointer-events: none;
-    background-attachment: fixed;
-}
-
-#TestIcone{
-width: 150px;
-height: 80px;
 }
 
 @keyframes slideRight {
@@ -137,10 +120,20 @@ height: 80px;
 	}
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 868px) {
 	.navbar {
 	    height: 70px;
 	    padding: 10px 20px;
+	}
+
+	#LogoMedflex {
+		z-index: 1;
+		position: absolute;
+		top: 55%;
+		left: 50%;
+		transform: translate(-50%,-50%);
+		pointer-events: none;
+		background-attachment: fixed;
 	}
 
 	.menu{

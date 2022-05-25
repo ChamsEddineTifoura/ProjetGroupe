@@ -1,11 +1,12 @@
-{% extends 'base.html.twig' %} {% set titreH1 = 'Mes films' %}
+{% extends 'base.html.twig' %}
+{% block title %}Mes films{% endblock %}
 {% block body %}
 <div class="containerCard">
 
     {# boucle sur le tableau $film du controller #}
     {% for key, item in films %}
     <div class="carte">
-        <div class="circle" style="--clr:#f40103">
+        <div class="circle" style="--clr:#1B1717">
             <img class="logo" src="https://image.tmdb.org/t/p/w500/{{ item.image }}" alt="">
         </div>
         <div class="content">
@@ -13,9 +14,16 @@
             <p>{{ item.synopsis }}</p>
             <a href="{{ path('delete_film', {'id': item.id}) }}" onclick="return confirm('Voulez vous vraiment supprimer ce film?')">Supprimer</a>
         </div>
-        <img class="product_img" src="" alt="">
     </div>
     {% endfor %}
        
 </div>
+<script>
+    const carte = document.querySelectorAll('.carte');
+    carte.forEach(function(item) {
+        item.addEventListener('click', function() {
+            item.classList.toggle('touch-carte');
+        });
+    });
+</script>
 {% endblock %}

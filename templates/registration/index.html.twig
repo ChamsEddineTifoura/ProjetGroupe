@@ -1,13 +1,10 @@
-{# templates/registration/index.html.twig #} {% extends 'base.html.twig' %} {% set titreH1 = 'Register' %}
+{# templates/registration/index.html.twig #} {% extends 'base.html.twig' %}
+{% block title %}S'enregistrer{% endblock %}
 {% block body %} 
 <div class="container">
   <div class="row justify-content-center">
     <div class="row col-md-10 ml-md-auto justify-content-center">
-<<<<<<< HEAD
-      <div class="card bg-light mb-3 mt-5" id="Form" style="width: 800px">
-=======
       <div class="card bg-light mb-3 mt-5 allForms" style="width: 800px">
->>>>>>> a4a0ed064841cdec37d80e0f95831bd1bb905431
         <div class="card-body">
           <div class="card-header mb-3">Registration Form</div>
           {{ form(form) }}
